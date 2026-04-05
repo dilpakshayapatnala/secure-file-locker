@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Recycle Bin</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<a href="/dashboard" class="btn">Back</a>
+
+<p>Files will be deleted automatically after 29 days</p>
+
+<h2>Recycle Bin</h2>
+
+<table>
+
+<tr>
+
+<th></th>
+<th>File Name</th>
+<th>File Type</th>
+
+</tr>
+
+{% for f in files %}
+
+<tr>
+
+<td>
+
+<input type="checkbox" onclick="selectFile('{{f}}')">
+
+</td>
+
+<td>{{f}}</td>
+
+<td>{{f.split('.')[-1]}}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<div id="actions" style="display:none">
+
+<button onclick="restoreFile()">Restore</button>
+
+<button onclick="deleteFile()">Delete</button>
+
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+
+</html>
